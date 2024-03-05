@@ -2,7 +2,7 @@
   "name": "SACDownloadManager",
   "author": "椽承设计",
   "url": "https://github.com/leolee9086/SACDownloadManager",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "minAppVersion": "3.0.0",
   "backends": [
     "windows",
@@ -35,7 +35,7 @@
     "patreon": "",
     "github": "",
     "custom": [
-      "https://afdian/leolee9086"
+      "https://afdian.net/a/leolee9086"
     ]
   },
   "keywords": [
