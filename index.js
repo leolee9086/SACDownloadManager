@@ -1,5 +1,6 @@
 const { Plugin } = require("siyuan");
 const clientApi = require("siyuan");
+globalThis[Symbol.for(`clientApi`)]=globalThis[Symbol.for(`clientApi`)]||clientApi
 function 获取文件名(moduleURL) {
     // 替换所有的 '\\' 为 '/'
     moduleURL = moduleURL.replace(/\\/g, '/');

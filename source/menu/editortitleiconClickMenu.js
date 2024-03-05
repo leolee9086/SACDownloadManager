@@ -1,5 +1,4 @@
 import {kernelApi, plugin} from '../asyncModules.js'
-console.log(kernelApi)
 export const 创建编辑器标题图标菜单=(e)=>{
     const {data,menu}=e.detail
     menu.addItem(
