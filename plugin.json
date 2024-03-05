@@ -1,0 +1,45 @@
+{
+  "name": "SACDownloadManager",
+  "author": "椽承设计",
+  "url": "https://github.com/leolee9086/SACDownloadManager",
+  "version": "0.0.1",
+  "minAppVersion": "3.0.0",
+  "backends": [
+    "windows",
+    "linux",
+    "darwin",
+    "ios",
+    "android"
+  ],
+  "frontends": [
+    "desktop",
+    "mobile",
+    "browser-desktop",
+    "browser-mobile",
+    "desktop-window"
+  ],
+  "displayName": {
+    "default": "SACDownloadManager",
+    "zh_CN": "sac下载助手"
+  },
+  "description": {
+    "default": "This is a plugin to download packages",
+    "zh_CN": "这是一个用于下载各种文件的插件,sac插件系列的一部分"
+  },
+  "readme": {
+    "default": "README.md",
+    "zh_CN": "README_zh_CN.md"
+  },
+  "funding": {
+    "openCollective": "",
+    "patreon": "",
+    "github": "",
+    "custom": [
+      "https://afdian/leolee9086"
+    ]
+  },
+  "keywords": [
+    "download",
+    "示例"
+  ]
+}
