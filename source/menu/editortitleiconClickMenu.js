@@ -1,52 +1,39 @@
 import {kernelApi, plugin} from '../asyncModules.js'
+import { 下载路径内所有图片 ,下载路径内所有附件} from '../utils/batchDownload.js'
 export const 创建编辑器标题图标菜单=(e)=>{
     const {data,menu}=e.detail
     menu.addItem(
         {
-            label:'下载子文档所有图片',
+            label:'子文档内容批量下载',
             icon:"iconDownload",
-            click:()=>{
-                console.log(data.rootID)
-                let doc =kernelApi.sql.sync(
-                    {
-                        stmt:`select * from blocks where root_id = '${data.rootID}' and type ='d'`
+            submenu:[
+                {
+                    label:'下载子文档所有图片',
+                    icon:"iconDownload",
+                    click:async ()=>{
+                      await 下载路径内所有图片(data.rootID)
                     }
-                )[0]
-                const 子文档列表 = kernelApi.listDocsByPath.sync(
-                    {
-                        path:doc.path,
-                        notebook:doc.box
-                        
+                },     {
+                    label:'递归下载子文档所有图片',
+                    icon:"iconDownload",
+                    click:async ()=>{
+                      await 下载路径内所有图片(data.rootID,true)
                     }
-                )
-                子文档列表.files.forEach(子文档 => {
-                    kernelApi.netImg2LocalAssets.sync({id:子文档.id})
-                });
-            }
-        },
-    )
-    menu.addItem(
-        {
-            label:'下载子文档所有文件',
-            icon:"iconDownload",
-            click:()=>{
-                console.log(data.rootID)
-                let doc =kernelApi.sql.sync(
-                    {
-                        stmt:`select * from blocks where root_id = '${data.rootID}' and type ='d'`
+                },        {
+                    label:'下载子文档所有文件',
+                    icon:"iconDownload",
+                    click:async()=>{
+                        await 下载路径内所有附件(data.rootID)
                     }
-                )[0]
-                const 子文档列表 = kernelApi.listDocsByPath.sync(
-                    {
-                        path:doc.path,
-                        notebook:doc.box
-                        
+                }, {
+                    label:'递归下载子文档所有文件',
+                    icon:"iconDownload",
+                    click:async()=>{
+                        await 下载路径内所有附件(data.rootID,true)
                     }
-                )
-                子文档列表.files.forEach(子文档 => {
-                    kernelApi.netAssets2LocalAssets.sync({id:子文档.id})
-                });
-            }
+                }
+            ]
+
         }
     )
 }

@@ -122,7 +122,7 @@ module.exports = class sacDownlaodMananger extends ccPlugin {
         this.初始化环境变量()
     }
     async 初始化插件异步状态() {
-        this.从esm模块('./source/menu/index.js').合并子模块("菜单管理器")
+        await this.从esm模块('./source/menu/index.js').合并子模块("菜单管理器")
         
     }
 }
